@@ -4,13 +4,13 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Sign In | Velzon </title>
+    <title>Sign In | EduGenesis </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
-
     <!-- Layout config Js -->
     <script src="http://localhost/project/assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
@@ -19,7 +19,6 @@
     <link href="http://localhost/project/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="http://localhost/project/assets/css/app.min.css" rel="stylesheet" type="text/css" />
-    
     <!-- custom Css-->
     <link href="http://localhost/project/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
@@ -28,32 +27,14 @@
 <style>
 
 .auth-one-bg .bg-overlay {
-    background: linear-gradient(to right, #194550, #6b275f) !important;
+    background: linear-gradient(to right,rgb(42 59 114),rgb(170, 51, 148)) !important;
 }
 
-.btn-success {
-    --vz-btn-bg: #643b72;
-    --vz-btn-border-color: #643b72;
-    --vz-btn-hover-bg: #643b72;
-    --vz-btn-hover-border-color: #643b72;
-    --vz-btn-focus-shadow-rgb: #643b72;
-    --vz-btn-active-bg: #643b72;
-    --vz-btn-active-border-color: #643b72;
-    --vz-btn-disabled-bg: #643b72;
-    --vz-btn-disabled-border-color: #643b72;
-}
-
-.btn-success:hover, .btn-success.active,  .btn-success:first-child:active, .btn-success:active {
-    background-color: #573164 !important;
-    border-color: #573164 !important;
-}
-
-.text-primary {
-    color: #643b72 !important;
-}
-
-.text-primary:hover {
-    color: #573164 !important;
+#logo {
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 500;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 </style>
@@ -61,7 +42,6 @@
 <body>
 
     <div class="auth-page-wrapper pt-5">
-        <!-- auth page bg -->
         <div class="auth-one-bg-position auth-one-bg" id="auth-particles">
             <div class="bg-overlay"></div>
 
@@ -72,7 +52,6 @@
             </div>
         </div>
 
-        <!-- auth page content -->
         <div class="auth-page-content">
             <div class="container">
                 <div class="row">
@@ -80,14 +59,12 @@
                         <div class="text-center mt-sm-5 mb-4 text-white-50">
                             <div>
                                 <a href="index.html" class="d-inline-block auth-logo">
-                                    <img src="/assets/images/logo-light.png" alt="" height="20">
+                                    <h3 id="logo">EduGenesis</h3>
                                 </a>
                             </div>
-                            <p class="mt-3 fs-15 fw-medium">Turn Clicks into Customers with Powerful Ads!</p>
                         </div>
                     </div>
                 </div>
-                <!-- end row -->
 
                 <div class="row justify-content-center">
                     <div class="col-md-8 col-lg-6 col-xl-5">
@@ -96,13 +73,13 @@
                             <div class="card-body p-4">
                                 <div class="text-center mt-2">
                                     <h5 class="text-primary">Welcome Back !</h5>
-                                    <p class="text-muted">Sign in to continue to Velzon</p>
+                                    <p class="text-muted">Sign in to continue to EduGenesis</p>
                                 </div>
                                 <div class="p-2 mt-4">
                                     <form id="loginForm">
 										<p class="text-center" id="loginMsg"></p>
                                         <div class="mb-3">
-                                            <label for="un" class="form-label">Username</label>
+                                            <label for="un" class="form-label">Email</label>
                                             <input type="text" class="form-control" id="un" name="un" placeholder="Enter username">
                                         </div>
 
@@ -117,46 +94,28 @@
                                             </div>
                                         </div>
 
-                                       <!--<div class="form-check">
+                                       <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" id="auth-remember-check">
                                             <label class="form-check-label" for="auth-remember-check">Remember me</label>
-                                        </div>-->
-
-                                        <div class="mt-4">
-                                            <button class="btn btn-success w-100" type="submit">Sign In</button>
                                         </div>
 
-                                        <!--<div class="mt-4 text-center">
-                                            <div class="signin-other-title">
-                                                <h5 class="fs-13 mb-4 title">Sign In with</h5>
-                                            </div>
-                                            <div>
-                                                <button type="button" class="btn btn-primary btn-icon waves-effect waves-light"><i class="ri-facebook-fill fs-16"></i></button>
-                                                <button type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-google-fill fs-16"></i></button>
-                                                <button type="button" class="btn btn-dark btn-icon waves-effect waves-light"><i class="ri-github-fill fs-16"></i></button>
-                                                <button type="button" class="btn btn-info btn-icon waves-effect waves-light"><i class="ri-twitter-fill fs-16"></i></button>
-                                            </div>
-                                        </div>-->
+                                        <div class="mt-4">
+                                            <button class="btn btn-primary w-100" type="submit">Sign In</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
-                            <!-- end card body -->
                         </div>
-                        <!-- end card -->
 
                         <div class="mt-4 text-center">
-                            <p class="mb-0">Don't have an account ? <a href="/project/Login/signup" class="fw-semibold text-primary text-decoration-underline"> Signup </a> </p>
+                            <p class="mb-0">Don't have an account ? <a href="http://localhost/project/Login/signup" class="fw-semibold text-primary text-decoration-underline"> Signup </a> </p>
                         </div>
 
                     </div>
                 </div>
-                <!-- end row -->
             </div>
-            <!-- end container -->
         </div>
-        <!-- end auth page content -->
 
-        <!-- footer -->
         <footer class="footer">
             <div class="container">
                 <div class="row">
@@ -172,9 +131,7 @@
                 </div>
             </div>
         </footer>
-        <!-- end Footer -->
     </div>
-    <!-- end auth-page-wrapper -->
 
     <!-- JAVASCRIPT -->
     <script src="http://localhost/project/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -185,11 +142,11 @@
     <script src="http://localhost/project/assets/js/plugins.js"></script>
 
     <!-- particles js -->
-    <script src="/assets/libs/particles.js/particles.js"></script>
+    <script src="http://localhost/project/assets/libs/particles.js/particles.js"></script>
     <!-- particles app js -->
-    <script src="/assets/js/pages/particles.app.js"></script>
+    <script src="http://localhost/project/assets/js/pages/particles.app.js"></script>
     <!-- password-addon init -->
-    <script src="/assets/js/pages/password-addon.init.js"></script>
+    <script src="http://localhost/project/assets/js/pages/password-addon.init.js"></script>
 	
 	<script>
         const loginForm = document.getElementById('loginForm');

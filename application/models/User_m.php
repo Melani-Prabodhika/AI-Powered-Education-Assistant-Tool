@@ -5,14 +5,10 @@ class User_m extends CI_Model {
 	public function register() {
 		$this->load->library('form_validation');
 
-		$this->form_validation->set_rules('com_name', 'Company Name', 'required');
-		$this->form_validation->set_rules('com_email', 'Company Email Address', 'required');
-		$this->form_validation->set_rules('com_phone', 'Company Conatct No', 'required');
-		$this->form_validation->set_rules('com_address', 'Company Address', 'required');
-		$this->form_validation->set_rules('admin', 'Admin Name', 'required');
-		$this->form_validation->set_rules('user_email', 'Admin Email Address', 'required');
-		$this->form_validation->set_rules('user_phone', 'Admin Conatct No', 'required');
-		$this->form_validation->set_rules('user_address', 'Admin Address', 'required');
+		$this->form_validation->set_rules('user_name', 'User Name', 'required');
+		$this->form_validation->set_rules('user_email', 'Email Address', 'required');
+		$this->form_validation->set_rules('subject', 'Subject', 'required');
+		$this->form_validation->set_rules('school', 'School Name', 'required');
 		$this->form_validation->set_rules('password-input', 'Password', 'required');
 		
 		if ($this->form_validation->run() === FALSE) {
@@ -20,7 +16,7 @@ class User_m extends CI_Model {
 			echo json_encode(['stt' => 'error', 'msg' => $errors, 'data' => '']);
 			return;
 		} else {
-			$full_name = trim($_POST['admin']);
+			$full_name = trim($_POST['user_name']);
 			$name_parts = explode(' ', $full_name);
 
 			if (count($name_parts) === 1) {
@@ -30,32 +26,14 @@ class User_m extends CI_Model {
 			} else {
 				$shortname = $name_parts[0] . ' ' . $name_parts[count($name_parts) - 1];
 			}
-			
-			if(isset($_POST['com_id'])) {
-				$com_id = $_POST['com_id'];
-			} else {
-				$com_id = "";
-			}
-			
-			$com = array(
-					"com_name"=>$_POST['com_name'],
-					"contact_no"=>$_POST['com_phone'],
-					"com_email"=>$_POST['com_email'],
-					"com_address"=>$_POST['com_address'],
-					"genzo_client_id"=>$com_id,
-				);
-				
-			$this->db->insert("company", $com);
-			$cid = $this->db->insert_id();
-			
+
 			$user = array(
-					"full_name"=>$_POST['admin'],
+					"full_name"=>$_POST['user_name'],
 					"email"=>$_POST['user_email'],
 					"contact_number"=>$_POST['user_phone'],
 					"address"=>$_POST['user_address'],
 					"password"=>$_POST['password-input'],
 					"short_name"=>$shortname,
-					"com_id"=>$cid,
 					"ut_id" => 1
 				);
 			

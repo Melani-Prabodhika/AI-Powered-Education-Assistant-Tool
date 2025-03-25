@@ -11,6 +11,7 @@ class Login extends CI_Controller {
   }
 
 	public function login_user() {
+		$this->load->model('Login_m');
 		$re = $this->Login_m->auth();
 		echo $re;
 	}
@@ -27,6 +28,7 @@ class Login extends CI_Controller {
 	}
 
 	public function saveLog($module, $activity, $ref_table, $ref_id){
+		$this->load->library('session');
 		$log = array(
 			'module' => $module,
 			'activity' => $activity,

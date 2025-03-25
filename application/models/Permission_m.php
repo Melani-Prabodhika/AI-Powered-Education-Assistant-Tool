@@ -1,10 +1,9 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Permission_m extends CI_Model {
-//------------------------------------------------------------------------------------------
-// get accessible menu sections - Nadun 2024-02-14
-	public function get_structure_for_roles()
-	{
+	
+	// get accessible menu sections
+	public function get_structure_for_roles(){
 		$re = $this->db->select('pm_id, pm_name, pm_icon, pm_url, "0" as permission')
 			->where('(pm_type = "all" OR pm_type = "'.$this->session->userdata("ut_type").'")')
 			->where('status', 'active')->order_by('pm_order', 'ASC')->get('sys_permission_main')->result();
@@ -19,10 +18,8 @@ class Permission_m extends CI_Model {
 		
 		return $re; 
 	}
-//------------------------------------------------------------------------------------------
-// to add permissions to roles - Nadun - 2024-02-20
-	public function add_permissions_to_role()
-	{
+	// to add permissions to roles
+	public function add_permissions_to_role(){
 		$error = "";
 		
 		$this->load->library('form_validation');
@@ -47,8 +44,6 @@ class Permission_m extends CI_Model {
 		// exit(); 
 		$permissions = json_decode($_POST["data"], true);
 		
-		
-		
 		//init transaction
 		$this->db->trans_start();
 		if($_POST['user_type'] != ''){
@@ -71,7 +66,6 @@ class Permission_m extends CI_Model {
 				"remove_from_sales" => 0,
 			);
 			
-		
 			$ut_id = $this->db->where('ut_id',$_POST['user_type'])->update('sys_user_type',$up_data);
 			
 			// For sys_permission_user_main table
@@ -214,7 +208,7 @@ class Permission_m extends CI_Model {
 		}
 		
 		// print_r($ps_array);
-				// exit();
+		// exit();
 		//validations for permissions
 		if(empty($pm_array) || empty($ps_array)){
 			$this->db->trans_rollback();
@@ -238,8 +232,8 @@ class Permission_m extends CI_Model {
 		
 		
 	} 
-//------------------------------------------------------------------------------------------
-// get permission usertypes using company
+
+	// get permission usertypes using company
 	public function getComUserTypes(){
 		
 		
@@ -258,11 +252,9 @@ class Permission_m extends CI_Model {
 		// exit;
 		 return $re;
 	}
-//------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------
-// get user types - Sam 2024-02-28
-	public function get_structure_for_roles_permission_id() 
-	{
+
+	// get user types
+	public function get_structure_for_roles_permission_id() {
 		$re = $this->db->select('pm_id, pm_name, pm_icon, pm_url, "0" as permission')
 			->where('(pm_type = "all" OR pm_type = "'.$this->session->userdata("ut_type").'")')
 			->where('status', 'active')->order_by('pm_order', 'ASC')->get('sys_permission_main')->result();
@@ -278,8 +270,7 @@ class Permission_m extends CI_Model {
 		return $re;
 	}
 	
-//------------------------------------------------------------------------------------------
-// get permissins using userType - Sam 2024-02-29
+	// get permissins using userType
 	public function getPermissionById($ut_id) 
 	{
 		$res = $this->db->where('ut_id',$ut_id)->get('sys_user_type')->row();

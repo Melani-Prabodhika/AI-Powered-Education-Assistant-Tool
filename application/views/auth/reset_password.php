@@ -210,10 +210,10 @@
 	</script>
 	
 	<!-- custom js -->
-	<script src="/assets/custom/js/jquery.form.min.js?up=<?= $this->version_update ?>"></script>
-	<script src="/assets/custom/js/submit.js?up=<?= $this->version_update ?>"></script>
-	<script src="/assets/custom/js/custom.js?up=<?= $this->version_update ?>"></script>
-	<script src="/assets/custom/js/toastify.js?up=<?= $this->version_update ?>"></script>
+	<script src="http://localhost/project/assets/custom/js/jquery.form.min.js?up=<?= $this->version_update ?>"></script>
+	<script src="http://localhost/project/assets/custom/js/submit.js?up=<?= $this->version_update ?>"></script>
+	<script src="http://localhost/project/assets/custom/js/custom.js?up=<?= $this->version_update ?>"></script>
+	<script src="http://localhost/project/assets/custom/js/toastify.js?up=<?= $this->version_update ?>"></script>
 </body>
 
 </html>

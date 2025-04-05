@@ -4,23 +4,23 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Create New Password | Velzon - Admin & Dashboard Template</title>
+    <title>Create New Password | EduGenesis </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="http://localhost/project/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
     <!-- Layout config Js -->
-    <script src="http://localhost/project/assets/js/layout.js"></script>
+    <script src="/assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
-    <link href="http://localhost/project/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="http://localhost/project/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="http://localhost/project/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
-    <link href="http://localhost/project/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -130,7 +130,7 @@
                         </div>
 
                         <div class="mt-4 text-center">
-                            <p class="mb-0">Wait, I remember my password. <a href="http://localhost/project" class="fw-semibold text-primary text-decoration-underline"> Click here </a> </p>
+                            <p class="mb-0">Wait, I remember my password. <a href="http://project.local.com" class="fw-semibold text-primary text-decoration-underline"> Click here </a> </p>
                         </div>
 
                     </div>
@@ -156,21 +156,21 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="http://localhost/project/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="http://localhost/project/assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="http://localhost/project/assets/libs/node-waves/waves.min.js"></script>
-    <script src="http://localhost/project/assets/libs/feather-icons/feather.min.js"></script>
-    <script src="http://localhost/project/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-    <script src="http://localhost/project/assets/js/plugins.js"></script>
+    <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/assets/libs/node-waves/waves.min.js"></script>
+    <script src="/assets/libs/feather-icons/feather.min.js"></script>
+    <script src="/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+    <script src="/assets/js/plugins.js"></script>
 
     <!-- particles js -->
-    <script src="http://localhost/project/assets/libs/particles.js/particles.js"></script>
+    <script src="/assets/libs/particles.js/particles.js"></script>
 
     <!-- particles app js -->
-    <script src="http://localhost/project/assets/js/pages/particles.app.js"></script>
+    <script src="/assets/js/pages/particles.app.js"></script>
 
     <!-- password-addon init -->
-    <script src="http://localhost/project/assets/js/pages/passowrd-create.init.js"></script>
+    <script src="/assets/js/pages/passowrd-create.init.js"></script>
 	
 	<!-- jquery library -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -210,10 +210,10 @@
 	</script>
 	
 	<!-- custom js -->
-	<script src="http://localhost/project/assets/custom/js/jquery.form.min.js?up=<?= $this->version_update ?>"></script>
-	<script src="http://localhost/project/assets/custom/js/submit.js?up=<?= $this->version_update ?>"></script>
-	<script src="http://localhost/project/assets/custom/js/custom.js?up=<?= $this->version_update ?>"></script>
-	<script src="http://localhost/project/assets/custom/js/toastify.js?up=<?= $this->version_update ?>"></script>
+	<script src="/assets/custom/js/jquery.form.min.js?up=<?= $this->version_update ?>"></script>
+	<script src="/assets/custom/js/submit.js?up=<?= $this->version_update ?>"></script>
+	<script src="/assets/custom/js/custom.js?up=<?= $this->version_update ?>"></script>
+	<script src="/assets/custom/js/toastify.js?up=<?= $this->version_update ?>"></script>
 </body>
 
 </html>

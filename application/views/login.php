@@ -10,17 +10,17 @@
     <meta content="Themesbrand" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
     <!-- Layout config Js -->
-    <script src="http://localhost/project/assets/js/layout.js"></script>
+    <script src="/assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
-    <link href="http://localhost/project/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="http://localhost/project/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="http://localhost/project/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
-    <link href="http://localhost/project/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -108,7 +108,7 @@
                         </div>
 
                         <div class="mt-4 text-center">
-                            <p class="mb-0">Don't have an account ? <a href="http://localhost/project/Login/signup" class="fw-semibold text-primary text-decoration-underline"> Signup </a> </p>
+                            <p class="mb-0">Don't have an account ? <a href="/Login/signup" class="fw-semibold text-primary text-decoration-underline"> Signup </a> </p>
                         </div>
 
                     </div>
@@ -134,19 +134,19 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="http://localhost/project/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="http://localhost/project/assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="http://localhost/project/assets/libs/node-waves/waves.min.js"></script>
-    <script src="http://localhost/project/assets/libs/feather-icons/feather.min.js"></script>
-    <script src="http://localhost/project/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-    <script src="http://localhost/project/assets/js/plugins.js"></script>
+    <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/assets/libs/node-waves/waves.min.js"></script>
+    <script src="/assets/libs/feather-icons/feather.min.js"></script>
+    <script src="/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+    <script src="/assets/js/plugins.js"></script>
 
     <!-- particles js -->
-    <script src="http://localhost/project/assets/libs/particles.js/particles.js"></script>
+    <script src="/assets/libs/particles.js/particles.js"></script>
     <!-- particles app js -->
-    <script src="http://localhost/project/assets/js/pages/particles.app.js"></script>
+    <script src="/assets/js/pages/particles.app.js"></script>
     <!-- password-addon init -->
-    <script src="http://localhost/project/assets/js/pages/password-addon.init.js"></script>
+    <script src="/assets/js/pages/password-addon.init.js"></script>
 	
 	<script>
         const loginForm = document.getElementById('loginForm');

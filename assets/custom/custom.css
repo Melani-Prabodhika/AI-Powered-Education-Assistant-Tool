@@ -1,0 +1,48 @@
+.sec-break {
+   padding: 20px 0px 0px 0px;
+ }
+ 
+ .dots-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 5px;
+   position: relative;
+ }
+ 
+ .dot {
+   width: 4px;
+   height: 4px;
+   border-radius: 50%;
+   background-color: #405189;
+   animation: color-shift 20s ease-in-out infinite;
+   position: relative;
+ }
+ 
+ @keyframes color-shift {
+   0%, 30% {
+     background-color: #405189;
+   }
+   
+   30%, 70% {
+      background-color: #98a4ca;
+   }
+   
+   70% {
+     background-color: #f8f8fd;
+   }
+ }
+ 
+ @keyframes bottom-circle-light {
+   0%, 70% {
+     background-color: #f8f8fd;
+   }
+   
+   30%, 70% {
+      background-color: #98a4ca;
+   }
+   
+   30% {
+     background-color: #405189;
+   }
+ }

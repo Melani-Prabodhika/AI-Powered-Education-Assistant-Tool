@@ -50,7 +50,7 @@ class Login extends CI_Controller {
 	}
 	
 	public function success_msg() {
-		$this->load->view('/auth/success_msg');
+		$this->load->view('/auth/reg_success');
 	}
 	
 	public function passReset() {

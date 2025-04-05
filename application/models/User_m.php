@@ -27,12 +27,14 @@ class User_m extends CI_Model {
 				$shortname = $name_parts[0] . ' ' . $name_parts[count($name_parts) - 1];
 			}
 
+			$password = password_hash($_POST['password-input'], PASSWORD_DEFAULT);
+
 			$user = array(
-					"full_name"=>$_POST['user_name'],
+					"user_name"=>$_POST['user_name'],
 					"email"=>$_POST['user_email'],
-					"contact_number"=>$_POST['user_phone'],
-					"address"=>$_POST['user_address'],
-					"password"=>$_POST['password-input'],
+					"school"=>$_POST['school'],
+					"subject"=>$_POST['subject'],
+					"password"=>$password,
 					"short_name"=>$shortname,
 					"ut_id" => 1
 				);
@@ -40,7 +42,7 @@ class User_m extends CI_Model {
 			$this->db->insert("user", $user);
 			$uid = $this->db->insert_id();
 			
-			if($cid && $uid) {
+			if($uid) {
 				echo json_encode(['stt' => 'ok', 'msg' => 'Account registered successfully!', 'data' => $uid]);
 			} else {
 				echo json_encode(['stt' => 'error', 'msg' => 'Something went wrong!', 'data' => '']);
@@ -60,7 +62,7 @@ class User_m extends CI_Model {
 			return;
 		} else {
 			$email = $_POST['user_email'];
-			$password = $_POST['password-input'];
+			$password = password_hash($_POST['password-input'], PASSWORD_DEFAULT);
 			
 			$re = $this->db->where("email", $email)->update("user", ["password" => $password]);
 

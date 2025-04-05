@@ -10,17 +10,17 @@
     <meta content="Themesbrand" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="http://localhost/project/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
     <!-- Layout config Js -->
-    <script src="http://localhost/project/assets/js/layout.js"></script>
+    <script src="/assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
-    <link href="http://localhost/project/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="http://localhost/project/assetscss/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assetscss/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="http://localhost/project/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
-    <link href="http://localhost/project/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 	 <!-- jquery library -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
@@ -65,7 +65,7 @@
                         <div class="text-center mt-sm-5 mb-4 text-white-50">
                             <div>
                                 <a href="/" class="d-inline-block auth-logo">
-												<h3 id="logo">EduGenesis</h3>
+									<h3 id="logo">EduGenesis</h3>
                                 </a>
                             </div>
                         </div>
@@ -84,62 +84,62 @@
 
                                 <div class="p-2 mt-4">
                                     <form class="needs-validation" novalidate id="signup_frm">
-													<div class="row gy-4">
+                                        <div class="row gy-4">
 
-														<div class="col-xxl-6 col-md-6">
-															<label for="admin" class="form-label">Your Name <span class="text-danger">*</span></label>
-															<input type="text" class="form-control" name="admin" id="admin" placeholder="Enter your name" required>
-															<div class="invalid-feedback">
-																Please enter your name
-															</div>
-														</div>
-														
-														<div class="col-xxl-6 col-md-6">
-															<label for="user_email" class="form-label">Email <span class="text-danger">*</span></label>
-															<input type="email" class="form-control" name="user_email" id="user_email" placeholder="Enter email address" required>
-															<div class="invalid-feedback">
-																Please enter your email
-															</div>
-														</div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="user_name" class="form-label">Your Name <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Enter your name" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter your name
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="user_email" class="form-label">Email <span class="text-danger">*</span></label>
+                                                <input type="email" class="form-control" name="user_email" id="user_email" placeholder="Enter email address" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter your email
+                                                </div>
+                                            </div>
 
-														<div class="col-xxl-6 col-md-6">
-															<label for="school" class="form-label">School Name <span class="text-danger">*</span></label>
-															<input type="text" class="form-control" name="school" id="school" placeholder="Enter your school name" required>
-															<div class="invalid-feedback">
-																Please enter your school name
-															</div>
-														</div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="school" class="form-label">School Name <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" name="school" id="school" placeholder="Enter your school name" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter your school name
+                                                </div>
+                                            </div>
 
-														<div class="col-xxl-6 col-md-6">
-															<label for="subject" class="form-label">Subject/s <span class="text-danger">*</span></label>
-															<input type="text" class="form-control" name="subject" id="subject" placeholder="Enter your subject" required>
-															<div class="invalid-feedback">
-																Please enter your school name
-															</div>
-														</div>
-														
-														<div class="mb-3 col-xxl-6 col-md-6">
-															<label class="form-label" for="password-input">Password <span class="text-danger">*</span></label>
-															<div class="position-relative auth-pass-inputgroup">
-																<input type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" name="password-input" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-																<button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon material-shadow-none" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
-																<div class="invalid-feedback">
-																	Please enter a valid password
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-xxl-6 col-md-6">
-															<label class="form-label" for="cpassword">Confirm Password <span class="text-danger">*</span></label>
-															<div class="position-relative auth-pass-inputgroup">
-																<input type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" name="cpassword" id="cpassword" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-																<button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon material-shadow-none" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
-																<div class="invalid-feedback" id="cpassword-error">
-																	Please enter password correctly
-																</div>
-															</div>
-														</div>
-													</div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="subject" class="form-label">Subject <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Enter your subject" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter your subject
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-3 col-xxl-6 col-md-6">
+                                                <label class="form-label" for="password-input">Password <span class="text-danger">*</span></label>
+                                                <div class="position-relative auth-pass-inputgroup">
+                                                    <input type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" name="password-input" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                                    <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon material-shadow-none" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                    <div class="invalid-feedback">
+                                                        Please enter a valid password
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label class="form-label" for="cpassword">Confirm Password <span class="text-danger">*</span></label>
+                                                <div class="position-relative auth-pass-inputgroup">
+                                                    <input type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" name="cpassword" id="cpassword" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                                    <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon material-shadow-none" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                    <div class="invalid-feedback" id="cpassword-error">
+                                                        Please enter password correctly
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         <div id="password-contain" class="p-3 bg-light mb-2 rounded">
                                             <h5 class="fs-13">Password must contain:</h5>
@@ -159,7 +159,7 @@
                         </div>
 
                         <div class="mt-4 text-center">
-                            <p class="mb-0">Already have an account ? <a href="http://localhost/project" class="fw-semibold text-primary text-decoration-underline"> Signin </a> </p>
+                            <p class="mb-0">Already have an account ? <a href="http://project.local.com" class="fw-semibold text-primary text-decoration-underline"> Signin </a> </p>
                         </div>
 
                     </div>
@@ -173,10 +173,10 @@
                     <div class="col-lg-12">
                         <div class="text-center">
                             <p class="mb-0 text-muted">
-										<strong>Copyright</strong> Melani Prabodhika © <script>
-											document.write(new Date().getFullYear())
-										</script>
-									</p>
+                                <strong>Copyright</strong> Melani Prabodhika © <script>
+                                    document.write(new Date().getFullYear())
+                                </script>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -185,23 +185,29 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="http://localhost/project/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="http://localhost/project/assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="http://localhost/project/assets/libs/node-waves/waves.min.js"></script>
-    <script src="http://localhost/project/assets/libs/feather-icons/feather.min.js"></script>
-    <script src="http://localhost/project/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-    <script src="http://localhost/project/assets/js/plugins.js"></script>
+    <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/assets/libs/node-waves/waves.min.js"></script>
+    <script src="/assets/libs/feather-icons/feather.min.js"></script>
+    <script src="/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+    <script src="/assets/js/plugins.js"></script>
 
     <!-- particles js -->
-    <script src="http://localhost/project/assets/libs/particles.js/particles.js"></script>
+    <script src="/assets/libs/particles.js/particles.js"></script>
     <!-- particles app js -->
-    <script src="http://localhost/project/assets/js/pages/particles.app.js"></script>
+    <script src="/assets/js/pages/particles.app.js"></script>
     <!-- validation init -->
-    <script src="http://localhost/project/assets/js/pages/form-validation.init.js"></script>
+    <script src="/assets/js/pages/form-validation.init.js"></script>
     <!-- password create init -->
-    <script src="http://localhost/project/assets/js/pages/passowrd-create.init.js"></script>
+    <script src="/assets/js/pages/passowrd-create.init.js"></script>
 	 <!-- jquery library -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+	<!-- custom js -->
+	<script src="/assets/custom/js/jquery.form.min.js?up=<?= $this->version_update ?>"></script>
+	<script src="/assets/custom/js/submit.js?up=<?= $this->version_update ?>"></script>
+	<script src="/assets/custom/js/custom.js?up=<?= $this->version_update ?>"></script>
+	<script src="/assets/custom/js/toastify.js?up=<?= $this->version_update ?>"></script>
 	
 	<script>
 	
@@ -225,14 +231,24 @@
 	});
 	
 	$(document).ready(function() {
-		/*$('#signup_frm').ajax_submit({
-			url : '/Login/register',
-			callback : function(response){
-				if (response !== "") {
-					window.location.href = "/Login/success_msg";
-				}
-			}
-		});*/
+		$('#signup_frm').submit(function(e) {
+            e.preventDefault();
+
+            $.ajax({
+                type: 'POST',
+                url: '/Login/register',
+                data: $(this).serialize(),
+                success: function(response) {
+                    if (response !== "") {
+                        window.location.href = "/Login/success_msg";
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        });
+
 		
 		$(document).on('keypress','.numonly', function(eve){
 			if ((eve.which < 48 || eve.which > 57) || (eve.which == 46 && $(this).caret().start == 0)) {
@@ -242,12 +258,6 @@
 	});
 	
 	</script>
-	
-	<!-- custom js -->
-	<script src="http://localhost/project/assets/custom/js/jquery.form.min.js?up=<?= $this->version_update ?>"></script>
-	<script src="http://localhost/project/assets/custom/js/submit.js?up=<?= $this->version_update ?>"></script>
-	<script src="http://localhost/project/assets/custom/js/custom.js?up=<?= $this->version_update ?>"></script>
-	<script src="http://localhost/project/assets/custom/js/toastify.js?up=<?= $this->version_update ?>"></script>
 	
 </body>
 

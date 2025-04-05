@@ -1,7 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed'); 
 
-class Api {
+class Api_calls {
     
     private $ci;
     private $api_key;

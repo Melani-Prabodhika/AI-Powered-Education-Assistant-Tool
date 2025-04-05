@@ -4,21 +4,20 @@ class Login_m extends CI_Model {
 
    public function auth(){ 
 		$this->db->join('sys_user_type','sys_user_type.ut_id = user.ut_id','left');
-		$this->db->select("*, user.status status, user.com_id com_id");
+		$this->db->select("*, user.status status, user.com_id com_id, user.password");
 		$this->db->where('user.email', $_POST['un']);
-		$this->db->where('password', $_POST['pw']);
 		$this->db->where('user.status !=','delete');
 		$this->db->where('sys_user_type.status','active');
 		$q = $this->db->get('user')->row();
 		 
-		if($q != null){
+		if($q != null && password_verify($_POST['pw'], $q->password)){
 			$user = $q->user_id;
             $a = array(
                 "login"=>true,
                 "user_id"=>$q->user_id,
                 "ut_name"=>$q->ut_name,
                 "ut_id"=>$q->ut_id,
-                "user_name"=>$q->full_name,
+                "user_name"=>$q->user_name,
 				    "short_name"=>$q->short_name,
                 "pro_pic"=>$q->pro_pic,
                 "status"=>$q->status,
@@ -35,7 +34,7 @@ class Login_m extends CI_Model {
 			$this->load->model('Settings_m');
 			$this->load->model('Menu_m');
 			$this->load->model('Activity_log_m');
-			$b['sys_info'] = $this->Settings_m->getAllSystemInfo();
+			/*$b['sys_info'] = $this->Settings_m->getAllSystemInfo();*/
 			$b['sys_settings'] = $this->Settings_m->getAllSystemSettings();
 			$b['permissions'] = $this->Menu_m->getMenuItems($q->ut_id);
 			$this->session->set_userdata($b);

@@ -231,6 +231,7 @@
 
 	<script>
 	const content = <?php echo json_encode($resParam); ?>;
+    console.log(content);
 		
 		function extractLessonPlanFromUrl(encodedData) {
 			 try {
@@ -452,17 +453,31 @@
 			saveButton.disabled = true;
 			
 			$.ajax({
-				url: '/Test/save_lesson',
+				url: '/Lesson_plan/save_lesson',
 				type: 'POST',
 				data: JSON.stringify(lessonPlan),
 				processData: false,
 				contentType: 'application/json',
 				success: function(response) {
-					alert("Lesson plan created successfully!");
+                    Toastify({
+                        text: response.msg || "Lesson plan created successfully!",
+                        duration: 4000,
+                        close: true,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: "linear-gradient(to right, rgb(6, 161, 244), rgb(9, 104, 28))",
+                    }).showToast();
 				},
 				error: function(error) {
 					console.error('Error:', error);
-					alert("Error creating lesson plan.");
+                    Toastify({
+                        text: error || "Error creating lesson plan.",
+                        duration: 4000,
+                        close: true,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: "linear-gradient(to right, rgb(155, 22, 0), rgb(2, 0, 0))",
+                    }).showToast();
 				},
 				complete: function() {
 					saveButton.innerHTML = originalButtonText;

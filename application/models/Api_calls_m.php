@@ -114,6 +114,9 @@ class Api_calls_m extends CI_Model {
 
      $responseData = json_decode($response, true);
 
+     print_r($responseData);
+     exit();
+
      return $responseData['contents'][0]['parts'][0]['text'] ?? 'Error: No content generated';
   }
 
@@ -156,14 +159,13 @@ class Api_calls_m extends CI_Model {
    - For MCQs, ensure distractors are plausible and educational
 
    ## Technical Requirements:
-   - Format response as valid HTML with appropriate classes
-   - Ensure all sections and questions are properly numbered
+   - Ensure all questions are properly numbered
    - Include appropriate formatting for different question types
    - Maintain consistent presentation and organization throughout
 
-   Do not include explanations, preambles, or commentary outside the HTML structure. Focus exclusively on generating a high-quality assignment within the specified format.";
+   Do not include explanations, preambles, or commentary. Focus exclusively on generating a high-quality assignment within the specified format.";
 
-   $userMessage = "Create a detailed lesson plan for the following specifications:\n" .
+   $userMessage = "Create a detailed assignment for the following specifications:\n" .
                "Subject: $subject\n" .
                "Grade Level: $gradeLevel\n" .
                "Topic: $topic\n" .
@@ -172,7 +174,7 @@ class Api_calls_m extends CI_Model {
                "Learning Objectives: $objectives\n";
 
       if (!empty($fileContent)) {
-         $userMessage .= "\nUse the following reference material to inform your lesson plan:\n$fileContent";
+         $userMessage .= "\nUse the following reference material to inform your assignment:\n$fileContent";
       }
 
       $data = [

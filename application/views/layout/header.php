@@ -78,12 +78,6 @@ function formatUrlPath($string)
 	padding-left: 15px !important;
 }
 
-@media (min-width: 768px) {
-  .topbar-user {
-    background-color: #fff;
-  }
-}
-
 .dataTables_length {
 	display: none;
 }
@@ -136,23 +130,19 @@ table.dataTable td.dataTables_empty {
                         <div class="navbar-brand-box horizontal-logo">
                             <a href="/Dashboard" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <!--<img src="/assets/images/logo-sm.png" alt="" height="22">-->
-                                    <h3 id="logo">EduGenesis</h3>
+                                    <img src="/assets/images/edugenesis-logo.png" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                   <!--- <img src="/assets/images/logo-dark.png" alt="" height="17">-->
-                                   <h3 id="logo">EduGenesis</h3>
+                                   <img src="/assets/images/edugenesis-logo.png" alt="" height="17">
                                 </span>
                             </a>
 
                             <a href="/Dashboard" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <!--<img src="/assets/images/maarji.small.logo.png" alt="" height="22">-->
-                                    <h4 id="logo">EduGenesis</h4>
+                                    <img src="/assets/images/edugenesis-logo.png" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <!--<img src="/assets/images/maarji logo.png" alt="" height="17">-->
-                                    <h4 id="logo">EduGenesis</h4>
+                                    <img src="/assets/images/edugenesis-logo.png" alt="" height="17">
                                 </span>
                             </a>
                         </div>
@@ -167,7 +157,7 @@ table.dataTable td.dataTables_empty {
 
                         <form class="app-search d-none d-md-block">
                             <div class="position-relative">
-                                <input type="text" class="form-control" placeholder="Search Waybill..." autocomplete="off" id="search-options" value="">
+                                <input type="text" class="form-control" placeholder="Search..." autocomplete="off" id="search-options" value="">
                                <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
                             </div>
                             <div class="dropdown-menu dropdown-menu-lg" id="search-dropdown">
@@ -345,7 +335,7 @@ table.dataTable td.dataTables_empty {
                         <div class="dropdown ms-sm-3 header-item topbar-user">
                             <button type="button" class="btn material-shadow-none" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="d-flex align-items-center">
-                                    <img class="rounded-circle header-profile-user" src="/documents/users/avatar-1.jpg" alt="Header Avatar">
+                                    <img class="rounded-circle header-profile-user" src="/assets/images/users/user-dummy-img.jpg" alt="Header Avatar">
                                     <span class="text-start ms-xl-2">
                                         <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text"><?php print_r($this->session->userdata('short_name'));?></span>
                                         <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text"><?php print_r($this->session->userdata('ut_type'));?></span>
@@ -390,18 +380,18 @@ table.dataTable td.dataTables_empty {
             <div class="navbar-brand-box">
                 <a href="/Dashboard" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="/assets/images/logo-sm.png" alt="" height="22">
+                        <img src="/assets/images/edugenesis-logo.png" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="/assets/images/logo-dark.png" alt="" height="17">
+                        <img src="/assets/images/edugenesis-logo.png" alt="" height="17">
                     </span>
                 </a>
                 <a href="/Dashboard" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="/assets/images/maarji.small.logo.png" alt="" height="22">
+                        <img src="/assets/images/edugenesis-logo.png" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="" alt="" height="50">
+                        <img src="/assets/images/edugenesis-logo.png" alt="" height="33">
                     </span>
                 </a>
                 <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">

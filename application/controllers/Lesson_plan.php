@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed'); 
 
-class Lesson_plan {
+class Lesson_plan extends CI_Controller {
 
    public function index(){
 		$this->load->view('/layout/header');
-		$this->load->view('/form');
+		$this->load->view('/lesson_plan/form');
 		$this->load->view('/layout/footer');
 	}
 	
@@ -24,7 +24,7 @@ class Lesson_plan {
 	}
 	
 	public function lesson_plan() {
-		$this->load->view('/lesson_view');
+		$this->load->view('/lesson_plan/lesson_view');
 	}
 
    public function save_lesson() {

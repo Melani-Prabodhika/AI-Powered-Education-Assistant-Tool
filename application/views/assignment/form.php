@@ -9,11 +9,11 @@ textarea.form-control {
 <div class="col-lg-12">
 	<div class="card">
 		<div class="card-header align-items-center d-flex">
-			<h4 class="card-title mb-0 flex-grow-1">Create a Lesson Plan</h4>
+			<h4 class="card-title mb-0 flex-grow-1">Create a Assignment</h4>
 		</div>
 		<div class="card-body">
 			<div class="live-preview">
-				<form id="lesson_frm" enctype="multipart/form-data">
+				<form id="assignment_frm" enctype="multipart/form-data">
 					<div class="row gy-4">
 						<div class="col-xxl-6 col-md-6">
 							<div>
@@ -35,24 +35,41 @@ textarea.form-control {
 						</div>
 						<div class="col-xxl-6 col-md-6">
 							<div>
-								<label for="period" class="form-label">No of Periods<span style="color: red;"> *</span></label>
-								<input type="text" class="form-control numonly" id="period" name="period" placeholder="Enter Number of Periods">
+								<label for="type" class="form-label">Assignment Type<span style="color: red;"> *</span></label>
+								<select class="form-control" id="type" name="type">
+								  <option value="-1">Select Assignment Type</option>
+								  <option value="MCQ">MCQ</option>
+								  <option value="Essay">Essay</option>
+								  <option value="Structured">Structured</option>
+								  <option value="All">All</option>
+								</select>
 							</div>
 						</div>
 						<div class="col-xxl-6 col-md-6">
 							<div>
 								<label for="content" class="form-label">Content<span style="color: red;"> *</span></label>
-								<textarea  class="form-control" id="content" name="content" placeholder="Enter Lesson Content"></textarea>
+								<textarea type="text" class="form-control" id="content" name="content" placeholder="Enter Lesson Content"></textarea>
 							</div>
 						</div>
 						<div class="col-xxl-6 col-md-6">
 							<div>
-								<label for="outcome" class="form-label">Learning Outcomes<span style="color: red;"> *</span></label>
-								<textarea class="form-control" id="outcome" name="outcome" placeholder="Enter Learning Outcomes"></textarea>
+								<label for="outcome" class="form-label">Lerning Outcomes<span style="color: red;"> *</span></label>
+								<textarea type="text" class="form-control" id="outcome" name="outcome" placeholder="Enter Lerning Outcomes"></textarea>
 							</div>
 						</div>
-						<div class="col-xxl-12 col-md-6 d-flex justify-content-end">
+						<div class="col-xxl-6 col-md-6">
 							<div>
+								<label for="lvl" class="form-label">Difficulty Level<span style="color: red;"> *</span></label>
+								<select class="form-control" id="lvl" name="lvl">
+								  <option value="-1">Select Difficulty Level</option>
+								  <option value="basic">Basic</option>
+								  <option value="intermediate">Intermediate</option>
+								  <option value="advanced">Advanced</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-xxl-6 col-md-6 d-flex justify-content-end">
+							<div style="margin-top: 28px;">
 								<button type="submit" class="btn btn-primary waves-effect waves-light">Create</button>
 							</div>
 						</div>
@@ -63,10 +80,11 @@ textarea.form-control {
 	</div>
 </div>
 
+
 <script>
 
 $(document).ready(function(){
-	$('#lesson_frm').on('submit', function(e) {
+	$('#assignment_frm').on('submit', function(e) {
 	  e.preventDefault();
 
 	  const formData = new FormData(this);
@@ -83,15 +101,18 @@ $(document).ready(function(){
 		waitingToast.showToast();
 
 	  $.ajax({
-		url: '/Lesson_plan/createLessonPlan',
+		url: '/Assignment/createAssignment',
 		type: 'POST',
 		data: formData,
 		processData: false,
 		contentType: false,
 		success: function(response) {
-			//console.log(response);
 		  waitingToast.hideToast();
-		  window.location.href="/Lesson_plan/lesson_plan?res="+response;
+		  // window.location.href="/Test/assignment?res="+response;
+		  
+			//sessionStorage.setItem('assignmentResponse', response);
+			sessionStorage.setItem('assignmentResponse', JSON.stringify(response));
+			window.location.href = "/Assignment/assignment";
 		},
 		error: function(error) {
 		  alert("Error creating lesson plan.");

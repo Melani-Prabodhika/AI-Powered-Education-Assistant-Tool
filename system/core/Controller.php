@@ -162,7 +162,7 @@ class CI_Controller {
 			$resp = $this->Login_m->auth();
 			$ut_id = $this->session->userdata('ut_id');
 			if( $resp == "1" ){
-				redirect('/Dash');
+				redirect('/Dashboard');
 			}else{
 				$this->load->view('login',$tx);
 			}

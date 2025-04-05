@@ -1,18 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed'); 
 
-class Assignement {
+class Assignment extends CI_Controller {
 
 	public function index(){
 		$this->load->view('/layout/header');
-		$this->load->view('/form');
-		$this->load->view('/layout/footer');
+		$this->load->view('/assignment/form');
+		$this->load->view('/layout/footer'); 
 	}
 
 	 public function assignment() {
-		$this->load->view('/assignment_view');
+		$this->load->view('/assignment/assignment_view');
 	}
-   
+
 	public function createAssignment() {
 		$subject = $_POST['subject'];
 		$gradeLevel = $_POST['grade'];

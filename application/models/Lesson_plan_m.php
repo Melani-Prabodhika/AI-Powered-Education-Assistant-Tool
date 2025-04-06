@@ -32,8 +32,37 @@ class Lesson_plan_m extends CI_Model {
 			 echo json_encode(['stt' => 'error', 'msg' => 'Something went wrong!', 'data' => '']);
 		}
   }
-  
 
+  public function getAllLessonPlans() {
+	$this->db->select('*');
+	$this->db->from('lesson_plans');
+	$this->db->group_start();
+	$this->db->where('user_id', $this->session->userdata('user_id'));
+	$this->db->or_where('public', 1);
+	$this->db->group_end();
+	$query = $this->db->get();
+	return $query->result();
+}
+
+public function updateStatus(){
+	$id = $_POST['lp_id'];
+
+	if($_POST['stt'] == "public"){
+		$stt = 1;
+	} else {
+		$stt = 0;
+	}
+	$data = array('public'=>$stt);
+	
+	$re = $this->db->where('lp_id', $id)->update('lesson_plans',$data);
+	
+	if($re){
+		echo json_encode(['stt' => 'ok', 'msg' => 'Status updated successfully!', 'data' => $id]);
+	} else {
+		echo json_encode(['stt' => 'error', 'msg' => 'Something went wrong!', 'data' => '']);
+	}
+}
+  
 }
 
 ?>

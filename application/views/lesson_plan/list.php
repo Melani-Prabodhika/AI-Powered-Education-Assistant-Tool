@@ -26,6 +26,7 @@
 							<th>#</th>
 							<th>Subject</th>
 							<th>Competancy</th>	
+                     <th style="display: none;">Competancy</th>
 							<th class="text-center">Status</th>
 							<th class="text-center">Action</th>
 						</tr>
@@ -50,6 +51,7 @@
                 <div class="modal-body">
                     <p class="text-muted" id="modalBodyText"></p>
 					<input type="text" class="form-control" id="lp_id" name="lp_id" hidden>
+               <input type="text" class="form-control" id="stt" name="stt" hidden>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
@@ -112,6 +114,7 @@ function  getAllLessonPlans() {
 		url: '/Lesson_plan/getAllLessonPlans',
 		success: function(re){
 			let data = JSON.parse(re);
+         console.log(data);
 			let list = '';
 			let stt = '';
 			let btn = '';
@@ -119,18 +122,21 @@ function  getAllLessonPlans() {
 			$.each(data, function(i){
 				var dt = data[i];
 				
-				if(dt.status == "active") {
+				if(dt.public == 1) {
 					stt = '<span class="badge bg-secondary">Public</span>';
-					btn = '<button type="button" class="btn btn-danger btn-xs waves-effect waves-light open-modal" data-bs-toggle="modal" data-action="private" data-rid="'+dt.lp_id+'">Private</button>';
-				} else if(dt.status == "delete"){
+					btn = '<button type="button" class="btn btn-danger btn-xs waves-effect waves-light open-modal" data-bs-toggle="modal" data-action="private" data-lid="'+dt.lp_id+'">Private</button>';
+				} else if(dt.public == 0){
 					stt = '<span class="badge bg-danger">Private</span>';
-					btn = '<button type="button" class="btn btn-primary btn-xs waves-effect waves-light open-modal" data-bs-toggle="modal" data-action="public" data-rid="'+dt.lp_id+'">Public</button>';
+					btn = '<button type="button" class="btn btn-primary btn-xs waves-effect waves-light open-modal" data-bs-toggle="modal" data-action="public" data-lid="'+dt.lp_id+'">Public</button>';
 				}
+
+          //  btn += '<button class="btn btn-xs btn-info view-btn" style="margin-left: 5px;" type="button" data-json=\'' + dt.lesson_plan_json + '\' data-lid="' + dt.lp_id + '">View</button>';
 				
 				list += '<tr>';
 				list += '<td>'+(i+1)+'</td>';
 				list += '<td>'+(dt.subject)+'</td>';
 				list += '<td>'+(dt.competency)+'</td>';
+            list += '<td style="display: none;">'+(dt.lesson_plan_json)+'</td>';
 				list += '<td class="text-center">'+stt+'</td>';
 				list += '<td class="text-center">'+btn+'</td>';
 				list += '</tr>';
@@ -146,15 +152,13 @@ function  getAllLessonPlans() {
 
 $(document).on('click', '.open-modal', function () {
     const action = $(this).data('action');
-    const rid = $(this).data('rid');
-    const title = action === 'delete' ? 'Delete Rider' : 'Activate Rider';
-    const bodyText = action === 'delete'
-        ? 'Do you want to delete this rider?'
-        : 'Do you want to activate this rider?';
-    const buttonText = action === 'delete' ? 'Delete' : 'Activate';
-    const buttonClass = action === 'delete' ? 'btn-danger' : 'btn-secondary';
-	const titleColor = action === 'delete' ? 'text-danger' : 'text-secondary';
-	const bodyColor = action === 'delete' ? '#db7c68' : '#7d94c0';
+    const lid = $(this).data('lid');
+    const title = 'Update Status';
+    const bodyText = 'Do you want to update this this lesson plan status?';
+    const buttonText = 'Update';
+    const buttonClass = action === 'public' ? 'btn-danger' : 'btn-secondary';
+	const titleColor = action === 'public' ? 'text-danger' : 'text-secondary';
+	const bodyColor = action === 'public' ? '#db7c68' : '#7d94c0';
 	
 	$('#modalBodyText').attr('style', `color: ${bodyColor} !important;`);
 	
@@ -175,9 +179,18 @@ $(document).on('click', '.open-modal', function () {
     });
 	
 	$('#stt').val(action);
-    $('#lp_id').val(rid);
+    $('#lp_id').val(lid);
 	
     $('#myModal').modal('show');
 });
+
+$(document).on('click', '.view-btn', function () {
+   var jsonData = $(this).data('json');
+    var lessonId = $(this).data('lid');
+
+    console.log('Lesson Plan JSON:', jsonData);
+
+  // window.location.href="/Lesson_plan/lesson_plan?res="+jsonData;
+})
 
 </script>

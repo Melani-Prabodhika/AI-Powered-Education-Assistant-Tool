@@ -31,6 +31,23 @@ class Lesson_plan extends CI_Controller {
 		$this->load->model('Lesson_plan_m');
 		$this->Lesson_plan_m->save_lesson();
 	}
+
+	public function lesson_list() {
+		$this->load->view('/layout/header');
+		$this->load->view('/lesson_plan/list');
+		$this->load->view('/layout/footer');
+	}
+
+	public function getAllLessonPlans() {
+		$this->load->model('Lesson_plan_m');
+		$a = $this->Lesson_plan_m->getAllLessonPlans();
+		echo json_encode($a);
+	}
+
+	public function updateStatus() {
+		$this->load->model('Lesson_plan_m');
+		$this->Lesson_plan_m->updateStatus();
+	}
 	
 }
 

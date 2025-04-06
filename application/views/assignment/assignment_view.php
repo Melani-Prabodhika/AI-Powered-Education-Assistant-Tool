@@ -253,7 +253,7 @@
             </div>
             <div class="assignment-info">
                 <span id="assignmentDifficulty">Difficulty: Intermediate</span>
-                <span id="assignmentDate">Date: <?php echo date('F d, Y'); ?></span>
+                <span id="assignmentDate">Date: March 20, 2025</span>
             </div>
         </div>
         
@@ -266,17 +266,6 @@
             </ul>
         </div>
         
-        <?php
-        // If we already have the response in PHP, we can render it directly
-        // This part is optional - if you're already storing the data in sessionStorage, you can remove this
-        if (isset($assignmentResponse)) {
-            echo '<script>';
-            echo 'sessionStorage.setItem("assignmentResponse", ' . json_encode($assignmentResponse) . ');';
-            echo '</script>';
-        }
-        ?>
-        
-        <!-- Initial content will be replaced by JavaScript -->
         <div class="assignment-section">
             <div class="section-title">Multiple Choice Questions (2 marks each)</div>
             
@@ -289,392 +278,262 @@
                     <p>d) Vascular tissue</p>
                 </div>
             </div>
+            
+            <div class="question">
+                <div class="question-text">2. Which type of epithelial tissue is specialized for secretion and absorption?</div>
+                <div class="options">
+                    <p>a) Squamous epithelium</p>
+                    <p>b) Cuboidal epithelium</p>
+                    <p>c) Columnar epithelium</p>
+                    <p>d) Transitional epithelium</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">3. Blood is classified as which type of tissue?</div>
+                <div class="options">
+                    <p>a) Epithelial</p>
+                    <p>b) Connective</p>
+                    <p>c) Muscular</p>
+                    <p>d) Nervous</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">4. What is the primary function of nervous tissue?</div>
+                <div class="options">
+                    <p>a) Contraction</p>
+                    <p>b) Secretion</p>
+                    <p>c) Transmission of electrical signals</p>
+                    <p>d) Support and structure</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="assignment-section">
+            <div class="section-title">True/False (2 marks each)</div>
+            
+            <div class="question">
+                <div class="question-text">1. Epithelial tissue always has a direct blood supply.</div>
+                <div class="true-false">(True / False)</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">2. Cardiac muscle is under voluntary control.</div>
+                <div class="true-false">(True / False)</div>
+            </div>
+        </div>
+        
+        <div class="assignment-section">
+            <div class="section-title">Short Answer (2 marks each)</div>
+            
+            <div class="question">
+                <div class="question-text">1. Briefly describe the primary function of epithelial tissue.</div>
+                <div class="short-answer"></div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">2. What are the three types of muscle tissue, and where is each typically found?</div>
+                <div class="short-answer"></div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">3. What is the main function of a neuron?</div>
+                <div class="short-answer"></div>
+            </div>
+        </div>
+        
+        <div class="assignment-section">
+            <div class="section-title">Essay Questions (5 marks each)</div>
+            
+            <div class="question">
+                <div class="question-text">1. Discuss the different types of connective tissues and their specific functions in the human body.</div>
+                <div class="word-limit">Word Limit: 150-200 words</div>
+                <div class="essay-answer-space"></div>
+            </div>
+        </div>
+        
+        <div class="assignment-section">
+            <div class="section-title">Structured Questions (4 marks each)</div>
+            
+            <div class="question">
+                <div class="question-text">1. Describe the structure of a typical nerve cell (neuron).</div>
+                <div class="structured-parts">
+                    <div class="structured-part">a) Include the functions of each part (dendrites, cell body, axon, myelin sheath).</div>
+                    <div class="structured-part">b) How does the structure relate to its function?</div>
+                </div>
+                <div class="short-answer"></div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">2. Compare and contrast the three types of muscular tissue.</div>
+                <div class="structured-parts">
+                    <div class="structured-part">a) Compare their structure</div>
+                    <div class="structured-part">b) Compare their function</div>
+                    <div class="structured-part">c) Compare their location in the body</div>
+                </div>
+                <div class="short-answer"></div>
+            </div>
         </div>
     </div>
     
     <script>
-    window.addEventListener('load', function() {
-      const response = sessionStorage.getItem('assignmentResponse');
-      
-      if (response) {
-        try {
-          const responseData = JSON.parse(response);
-          const assignmentData = extractAssignmentData(responseData);
-          
-          if (assignmentData) {
-            renderAssignment(assignmentData);
-          } else {
-            console.error('Failed to extract assignment data from response');
-          }
-        } catch (error) {
-          console.error('Error parsing assignment data:', error);
+		window.addEventListener('load', function() {
+		  const response = sessionStorage.getItem('assignmentResponse');
+		  if (response) {
+			console.log(response);
+			sessionStorage.removeItem('assignmentResponse');
+		  }
+		});
+
+	
+        function exportToWord() {
+            const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body>";
+            const footer = "</body></html>";
+            const sourceHTML = header + document.getElementById("assignmentContainer").innerHTML + footer;
+            
+            const blob = new Blob(['\ufeff', sourceHTML], {
+                type: 'application/msword'
+            });
+            
+            const title = document.getElementById("assignmentTitle").innerText || "Assignment";
+            const fileTitle = title.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+            
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = fileTitle + ".doc";
+            link.click();
+            URL.revokeObjectURL(link.href);
         }
-      }
-    });
-
-    function extractAssignmentData(responseData) {
-      // Extract the text content from the response
-      try {
-        // Access the text content from the response structure
-        if (responseData.candidates && 
-            responseData.candidates[0] && 
-            responseData.candidates[0].content && 
-            responseData.candidates[0].content.parts && 
-            responseData.candidates[0].content.parts[0] && 
-            responseData.candidates[0].content.parts[0].text) {
-          
-          return responseData.candidates[0].content.parts[0].text;
+        
+        function saveAssignment() {
+            const assignmentData = {
+                title: document.getElementById("assignmentTitle").innerText,
+                subject: document.getElementById("assignmentSubject").innerText.replace("Subject: ", ""),
+                grade: document.getElementById("assignmentGrade").innerText.replace("Grade: ", ""),
+                difficulty: document.getElementById("assignmentDifficulty").innerText.replace("Difficulty: ", ""),
+                date: document.getElementById("assignmentDate").innerText.replace("Date: ", ""),
+                content: document.getElementById("assignmentContainer").innerHTML
+            };
+            
+            fetch('/api/assignments/save', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(assignmentData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    showNotification("Assignment saved successfully!");
+                    return response.json();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification("Error saving assignment. Please try again.", true);
+            });
+            
+            showNotification("Assignment saved successfully!");
         }
-        return null;
-      } catch (error) {
-        console.error('Error extracting text from response:', error);
-        return null;
-      }
-    }
-
-    function renderAssignment(assignmentText) {
-      // Clear existing content
-      const container = document.getElementById('assignmentContainer');
-      
-      // Keep the header
-      const header = container.querySelector('.assignment-header');
-      const instructions = container.querySelector('.assignment-instructions');
-      
-      // Clear all sections
-      const sections = container.querySelectorAll('.assignment-section');
-      sections.forEach(section => section.remove());
-      
-      // Parse questions by category
-      const questionsByCategory = parseQuestions(assignmentText);
-      
-      // Render each category
-      renderQuestionsByCategory(container, questionsByCategory);
-      
-      // Update total marks
-      updateTotalMarks(questionsByCategory);
-    }
-
-    function parseQuestions(text) {
-      const questions = {
-        mcq: [],
-        truefalse: [],
-        shortanswer: [],
-        structured: [],
-        essay: []
-      };
-      
-      // Split the text into lines
-      const lines = text.split('\n');
-      
-      let currentQuestion = null;
-      let currentCategory = null;
-      
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i].trim();
         
-        if (!line) continue;
-        
-        // Detect question number and category
-        const questionMatch = line.match(/^(\d+)\.\s+\*\*([^:]+):\*\*\s+(.*)/);
-        
-        if (questionMatch) {
-          // Save previous question if exists
-          if (currentQuestion) {
-            questions[currentCategory].push(currentQuestion);
-          }
-          
-          const [, number, category, questionText] = questionMatch;
-          
-          // Determine category
-          let categoryKey = '';
-          if (category.toLowerCase().includes('mcq')) {
-            categoryKey = 'mcq';
-          } else if (category.toLowerCase().includes('true/false')) {
-            categoryKey = 'truefalse';
-          } else if (category.toLowerCase().includes('short answer')) {
-            categoryKey = 'shortanswer';
-          } else if (category.toLowerCase().includes('structured')) {
-            categoryKey = 'structured';
-          } else if (category.toLowerCase().includes('essay')) {
-            categoryKey = 'essay';
-          }
-          
-          currentCategory = categoryKey;
-          currentQuestion = {
-            number,
-            text: questionText,
-            options: [],
-            parts: []
-          };
-          
-          // For MCQs, try to extract the options from the next lines
-          if (categoryKey === 'mcq') {
-            let j = i + 1;
-            while (j < lines.length && lines[j].trim().match(/^[a-d]\)/)) {
-              currentQuestion.options.push(lines[j].trim());
-              j++;
+        function showNotification(message, isError = false) {
+            const notification = document.getElementById("notification");
+            notification.textContent = message;
+            
+            if (isError) {
+                notification.style.backgroundColor = "#f44336";
+            } else {
+                notification.style.backgroundColor = "#4CAF50";
             }
-            i = j - 1; // Skip the option lines
-          }
-          
-          // For structured questions, extract parts
-          if (categoryKey === 'structured') {
-            let j = i + 1;
-            while (j < lines.length && 
-                  (lines[j].trim().match(/^\([a-z]\)/) || 
-                   lines[j].trim().match(/^[a-z]\)/))) {
-              currentQuestion.parts.push(lines[j].trim());
-              j++;
-            }
-            i = j - 1; // Skip the part lines
-          }
-        } else if (line.match(/^\([a-z]\)/) || line.match(/^[a-z]\)/)) {
-          // This is a structured question part or an option
-          if (currentQuestion) {
-            if (currentCategory === 'structured') {
-              currentQuestion.parts.push(line);
-            } else if (currentCategory === 'mcq') {
-              currentQuestion.options.push(line);
-            }
-          }
-        } else if (line.includes('Word Limit')) {
-          // This is a word limit for an essay
-          if (currentQuestion) {
-            currentQuestion.wordLimit = line;
-          }
+            
+            notification.classList.add("show");
+            
+            setTimeout(() => {
+                notification.classList.remove("show");
+            }, 3000);
         }
-      }
-      
-      // Add the last question
-      if (currentQuestion && currentCategory) {
-        questions[currentCategory].push(currentQuestion);
-      }
-      
-      return questions;
-    }
-
-    function renderQuestionsByCategory(container, questionsByCategory) {
-      // Render MCQs
-      if (questionsByCategory.mcq.length > 0) {
-        renderSection(container, 'Multiple Choice Questions (2 marks each)', questionsByCategory.mcq, renderMCQ);
-      }
-      
-      // Render True/False
-      if (questionsByCategory.truefalse.length > 0) {
-        renderSection(container, 'True/False (2 marks each)', questionsByCategory.truefalse, renderTrueFalse);
-      }
-      
-      // Render Short Answer
-      if (questionsByCategory.shortanswer.length > 0) {
-        renderSection(container, 'Short Answer (2 marks each)', questionsByCategory.shortanswer, renderShortAnswer);
-      }
-      
-      // Render Essay
-      if (questionsByCategory.essay.length > 0) {
-        renderSection(container, 'Essay Questions (5 marks each)', questionsByCategory.essay, renderEssay);
-      }
-      
-      // Render Structured
-      if (questionsByCategory.structured.length > 0) {
-        renderSection(container, 'Structured Questions (4 marks each)', questionsByCategory.structured, renderStructured);
-      }
-    }
-
-    function renderSection(container, title, questions, renderFunction) {
-      const section = document.createElement('div');
-      section.className = 'assignment-section';
-      
-      const sectionTitle = document.createElement('div');
-      sectionTitle.className = 'section-title';
-      sectionTitle.textContent = title;
-      section.appendChild(sectionTitle);
-      
-      questions.forEach(question => {
-        renderFunction(section, question);
-      });
-      
-      container.appendChild(section);
-    }
-
-    function renderMCQ(section, question) {
-      const questionDiv = document.createElement('div');
-      questionDiv.className = 'question';
-      
-      const questionText = document.createElement('div');
-      questionText.className = 'question-text';
-      questionText.textContent = `${question.number}. ${question.text}`;
-      questionDiv.appendChild(questionText);
-      
-      const options = document.createElement('div');
-      options.className = 'options';
-      
-      question.options.forEach(option => {
-        const optionP = document.createElement('p');
-        optionP.textContent = option;
-        options.appendChild(optionP);
-      });
-      
-      questionDiv.appendChild(options);
-      section.appendChild(questionDiv);
-    }
-
-    function renderTrueFalse(section, question) {
-      const questionDiv = document.createElement('div');
-      questionDiv.className = 'question';
-      
-      const questionText = document.createElement('div');
-      questionText.className = 'question-text';
-      questionText.textContent = `${question.number}. ${question.text}`;
-      questionDiv.appendChild(questionText);
-      
-      const trueFalse = document.createElement('div');
-      trueFalse.className = 'true-false';
-      trueFalse.textContent = '(True / False)';
-      
-      questionDiv.appendChild(trueFalse);
-      section.appendChild(questionDiv);
-    }
-
-    function renderShortAnswer(section, question) {
-      const questionDiv = document.createElement('div');
-      questionDiv.className = 'question';
-      
-      const questionText = document.createElement('div');
-      questionText.className = 'question-text';
-      questionText.textContent = `${question.number}. ${question.text}`;
-      questionDiv.appendChild(questionText);
-      
-      const shortAnswer = document.createElement('div');
-      shortAnswer.className = 'short-answer';
-      
-      questionDiv.appendChild(shortAnswer);
-      section.appendChild(questionDiv);
-    }
-
-    function renderEssay(section, question) {
-      const questionDiv = document.createElement('div');
-      questionDiv.className = 'question';
-      
-      const questionText = document.createElement('div');
-      questionText.className = 'question-text';
-      questionText.textContent = `${question.number}. ${question.text}`;
-      questionDiv.appendChild(questionText);
-      
-      if (question.wordLimit) {
-        const wordLimit = document.createElement('div');
-        wordLimit.className = 'word-limit';
-        wordLimit.textContent = question.wordLimit;
-        questionDiv.appendChild(wordLimit);
-      } else {
-        const wordLimit = document.createElement('div');
-        wordLimit.className = 'word-limit';
-        wordLimit.textContent = 'Word Limit: 200-250 words';
-        questionDiv.appendChild(wordLimit);
-      }
-      
-      const essayAnswerSpace = document.createElement('div');
-      essayAnswerSpace.className = 'essay-answer-space';
-      
-      questionDiv.appendChild(essayAnswerSpace);
-      section.appendChild(questionDiv);
-    }
-
-    function renderStructured(section, question) {
-      const questionDiv = document.createElement('div');
-      questionDiv.className = 'question';
-      
-      const questionText = document.createElement('div');
-      questionText.className = 'question-text';
-      questionText.textContent = `${question.number}. ${question.text}`;
-      questionDiv.appendChild(questionText);
-      
-      if (question.parts.length > 0) {
-        const structuredParts = document.createElement('div');
-        structuredParts.className = 'structured-parts';
         
-        question.parts.forEach(part => {
-          const partDiv = document.createElement('div');
-          partDiv.className = 'structured-part';
-          partDiv.textContent = part;
-          structuredParts.appendChild(partDiv);
+        function saveAssignmentLocally() {
+            const assignmentData = {
+                title: document.getElementById("assignmentTitle").innerText,
+                subject: document.getElementById("assignmentSubject").innerText.replace("Subject: ", ""),
+                grade: document.getElementById("assignmentGrade").innerText.replace("Grade: ", ""),
+                difficulty: document.getElementById("assignmentDifficulty").innerText.replace("Difficulty: ", ""),
+                date: document.getElementById("assignmentDate").innerText.replace("Date: ", ""),
+                content: document.getElementById("assignmentContainer").innerHTML
+            };
+            
+            const jsonData = JSON.stringify(assignmentData, null, 2);
+            
+            const blob = new Blob([jsonData], { type: 'application/json' });
+            
+            const title = document.getElementById("assignmentTitle").innerText || "Assignment";
+            const fileTitle = title.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+            
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = fileTitle + ".json";
+            link.click();
+            URL.revokeObjectURL(link.href);
+            
+            showNotification("Assignment saved to file successfully!");
+        }
+        
+        function populateAssignment(data) {
+            // This function would be used to fill the template with actual data
+            // For example:
+            // document.getElementById('assignmentTitle').innerText = data.title;
+            // ...and so on for other fields
+            
+            // After populating, you might want to update any metadata needed for saving
+            // For example, setting a hidden field with an assignment ID if it's an existing assignment
+        }
+        
+        function setupCIFormSubmission() {
+            const form = document.getElementById('assignment_form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(this);
+                    
+                    formData.append('content', document.getElementById('assignmentContainer').innerHTML);
+                    
+                    fetch(this.action, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            showNotification("Assignment saved successfully!");
+                        } else {
+                            showNotification("Error saving assignment: " + data.message, true);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        showNotification("Error saving assignment. Please try again.", true);
+                    });
+                });
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            setupCIFormSubmission();
+            
+            const saveButton = document.querySelector('.save-btn'); 
+            if (saveButton) {
+                saveButton.addEventListener('click', function() {
+                    saveAssignmentLocally();
+                });
+            }
         });
-        
-        questionDiv.appendChild(structuredParts);
-      }
-      
-      const shortAnswer = document.createElement('div');
-      shortAnswer.className = 'short-answer';
-      
-      questionDiv.appendChild(shortAnswer);
-      section.appendChild(questionDiv);
-    }
-
-    function updateTotalMarks(questionsByCategory) {
-      let totalMarks = 0;
-      
-      // Calculate total marks based on number of questions and their mark values
-      totalMarks += questionsByCategory.mcq.length * 2;         // 2 marks each
-      totalMarks += questionsByCategory.truefalse.length * 2;   // 2 marks each
-      totalMarks += questionsByCategory.shortanswer.length * 2; // 2 marks each
-      totalMarks += questionsByCategory.essay.length * 5;       // 5 marks each
-      totalMarks += questionsByCategory.structured.length * 4;  // 4 marks each
-      
-      // Update the total marks in the instructions
-      const instructions = document.querySelector('.assignment-instructions ul');
-      if (instructions && instructions.lastElementChild) {
-        instructions.lastElementChild.innerHTML = `Total marks: <strong>${totalMarks}</strong>`;
-      }
-    }
-
-    // Add these utility functions for the buttons
-    function saveAssignment() {
-      // This function would typically save to a database or local storage
-      // For now, just show the notification
-      const notification = document.getElementById('notification');
-      notification.classList.add('show');
-      
-      // Hide notification after 3 seconds
-      setTimeout(() => {
-        notification.classList.remove('show');
-      }, 3000);
-      
-      // If you want to send data to server, you can use this:
-      /*
-      fetch('save_assignment.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          assignment: sessionStorage.getItem('assignmentResponse')
-        }),
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-      */
-    }
-
-    function exportToWord() {
-      // Create a new Blob with the HTML content
-      const html = document.querySelector('.assignment-container').outerHTML;
-      const blob = new Blob(['<!DOCTYPE html><html><head><title>Assignment</title><style>' + 
-                            document.querySelector('style').textContent + 
-                            '</style></head><body>' + html + '</body></html>'], 
-                            {type: 'application/msword'});
-      
-      // Create a download link and trigger it
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'Assignment.doc';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
     </script>
 </body>
 </html>
